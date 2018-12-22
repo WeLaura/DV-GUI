@@ -1,0 +1,13 @@
+﻿Parkinson Neurochirurgie Neurologie Psychotherapie
+Thrombose Gefäßchirurgie
+Osteoporose Orthopädie
+Presbyopie Augenarzt
+Dysphagie Hals-Nasen-Ohrenheilkunde Logopädie
+Brustkrebs Gynäkologen Onkologen Chirurgen Pathologen Strahlentherapeuten
+Verdauungsstörung Hausarzt Gastroskopie Enddarmuntersuchungen Leberuntersuchungen
+Diabetes Diabetologie Endokrinologie Ernährungsmedizin Hausarzt
+Arthrose Allgemeinchirurgie Orthopäde Unfallchirurgie Schulter-und_Ellenbogenchirurgie Becken-und_Hüftchirurgie Kniechirurgie
+Prostatakrebs Hausarzt Urologe
+Migräne Hausarzt Neurologe Schmerztherapeut Ärzte/Heilpraktiker
+Arteriosklerose Allgemeinmedizin Innere_Medizin Kardiologe Nephrologe 
+

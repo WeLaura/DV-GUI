@@ -1,0 +1,12 @@
+﻿Parkinson Levodopa
+Thrombose Blutverdünner_Thrombolyse
+Osteoporose Osteoanabole
+Presbyopie Sehtest
+Dysphagie Antimykotika
+Brustkrebs Palbociclib
+Verdauungsstörung Carmenthin
+Diabetes Sulfonylharnstoffe DPP-4-Hemmer_(Gliptine) GLP-1-Analoga SGLT-2-Hemmer
+Arthrose Paracetamol Metamizol Nichtsteroidale_Antirheumatika_(NSAR) Coxibe_(Cox-2-Inhibitoren) Opioide Kortison 
+Prostatakrebs Abirateronacetat PROSTA_VITAL_Complex_mit_Plasys_300 PROSTAGUTT_forte_160/120_mg_Weichkapseln
+Migräne NUROFEN_IBUPROFEN_400MG ASS_(900_bis_1000_mg) Ibuprofen_(400_mg) Paracetamol_(1000_mg) Phenazon_(1000_mg)
+Arteriosklerose ASS_(900_bis_1000_mg)

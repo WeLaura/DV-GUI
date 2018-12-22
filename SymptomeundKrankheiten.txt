@@ -1,0 +1,72 @@
+﻿Bewegungsverlangsamung Parkinson
+Muskelversteifung Parkinson
+Zittern Parkinson
+Störung_der_Halte-_und_Stellreflexe Parkinson
+Schwellung Thrombose Arthrose 
+Rötung Thrombose Arthrose
+Überwärmung Thrombose Arthrose 
+Schmerzen Thrombose
+Spannungsgefühl Thrombose
+Fieber Thrombose Dysphagie
+Beschleunigter_Puls Thrombose
+Rückenschmerzen Osteoporose
+Knieschmerzen Osteoporose
+Knochenbrüche Osteoporose
+schlechteres_Sehergebnis Presbyopie
+müde_Augen Presbyopie 
+Kopfschmerzen Presbyopie Arteriosklerose
+Geringe_Stressresistenz Presbyopie  
+Schwindel Presbyopie Arteriosklerose
+Verschlucken Dysphagie
+Husten_beim/nach_dem_Essen Dysphagie
+Veränderung_der_Stimme Dysphagie 
+Wiederhochkommen_von_Nahrung Dysphagie
+Verschleimung Dysphagie
+Fremdkörpergefühl_im_Hals Dysphagie
+Gewichtsverlust Dysphagie 
+Lungenentzündungen Dysphagie 
+Verhärtungen_in_der_Brust Brustkrebs
+veränderte_Größe_der_Brust Brustkrebs
+Einziehungen_der_Brusthaut/Brustwarze Brustkrebs 
+Unterschied_bei_Bewegung_der_Brüste Brustkrebs
+Veränderungen_der_Farbe_der_Brust Brustkrebs 
+Absonderungen_aus_der_Brustwarze Brustkrebs
+vergrößerte_Lymphknoten Brustkrebs  
+Rötung_oder_Schuppung_der_Brusthaut Brustkrebs  
+Völlegefühl Verdaaungsstörung
+Blähungen Verdaaungsstörung
+Blähbauch Verdaaungsstörung 
+Magendrücken_bzw._-schmerzen Verdaaungsstörung  
+Schmerzen_im_Oberbauch Verdaaungsstörung
+Übelkeit Verdaaungsstörung Migräne
+Verstopfung Verdaaungsstörung
+starker_Durst Diabetes 
+vermehrtes_Wasserlassen Diabetes    
+Müdigkeit_und_Leistungsabfall Diabetes   
+Heißhunger Diabetes  
+Neigung_zu_Infektionen Diabetes   
+schlecht_heilende_Wunden Diabetes   
+Wadenkrämpfe Diabetes 
+Sehstörungen Diabetes Arteriosklerose
+Juckreiz Diabetes 
+Azetongeruch_der_Atemluft Diabetes 
+Gelenkschmerzen Arthrose  
+Entzündungen Arthrose 
+Probleme_beim_Wasserlassen Prostatakrebs
+vermehrter_Harndrang Prostatakrebs   
+Schwierigkeiten_bei_Darmentleerung Prostatakrebs
+Blut_im_Urin/Samenflüssigkeit Prostatakrebs
+Schmerzen_beim_Samenerguss Prostatakrebs 
+Schmerzen_in_der_Prostata Prostatakrebs  
+Erektionsstörungen Prostatakrebs
+attackenartige_meist_einseitige_Kopfschmerzen  Migräne
+Wahrnehmungsstörungen Migräne
+Lichtempfindlichkeit Migräne
+Geruchsempfindlichkeit  Migräne  
+Appetitlosigkeit Migräne
+Leistungsminderung Arteriosklerose
+Angina_pectoris_Symptome_Anfall Arteriosklerose
+Gedächtnisstörungen Arteriosklerose
+Leistungschwäche Arteriosklerose
+Lärmempfindlichkeit
+Erbrechen Migräne
