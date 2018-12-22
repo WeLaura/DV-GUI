@@ -81,8 +81,18 @@ public class Patienten_Daten extends JFrame {
 		contentPane.setLayout(null);
 		
 		//Textdatei Symptome einlesen:
-		File Symptome = new File("Symptome.txt");
-		Scanner sc = new Scanner(Symptome, "UTF-8");
+		File symptome = new File("Symptome.txt");
+		Scanner scSymptome = new Scanner(symptome, "UTF-8");
+		//Ende Datei einlesen!
+		
+		//Textdatei Symptome einlesen:
+		File krankheiten = new File("Krankheit.txt");
+		Scanner scKrankheiten = new Scanner(krankheiten, "UTF-8");
+		//Ende Datei einlesen!
+		
+		//Textdatei Symptome einlesen:
+		File allergien = new File("Allergie.txt");
+		Scanner scAllergien = new Scanner(allergien, "UTF-8");
 		//Ende Datei einlesen!
 		
 		
@@ -142,10 +152,6 @@ public class Patienten_Daten extends JFrame {
 		lblAllergie.setBounds(23, 270, 70, 22);
 		contentPane.add(lblAllergie);
 		
-		JTextPane tpe_Allergien = new JTextPane();
-		tpe_Allergien.setBounds(641, 251, 559, 59);
-		contentPane.add(tpe_Allergien);
-		
 		JLabel lblWeitereKrankheiten = new JLabel("weitere Krankheiten:");
 		lblWeitereKrankheiten.setBounds(28, 354, 152, 16);
 		contentPane.add(lblWeitereKrankheiten);
@@ -153,10 +159,6 @@ public class Patienten_Daten extends JFrame {
 		JLabel label = new JLabel("wenn ja, welche:");
 		label.setBounds(421, 354, 143, 16);
 		contentPane.add(label);
-		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(641, 338, 559, 59);
-		contentPane.add(textPane);
 		
 		JLabel lblAngewohnheiten = new JLabel("Angewohnheiten:");
 		lblAngewohnheiten.setBounds(28, 420, 132, 25);
@@ -320,35 +322,17 @@ public class Patienten_Daten extends JFrame {
 		
 		//Listmodel anlegen und Daten einlesen
 		DefaultListModel DLM = new DefaultListModel();
-		while(sc.hasNextLine())
+		while(scSymptome.hasNextLine())
 		{
-			DLM.addElement(sc.nextLine());
+			DLM.addElement(scSymptome.nextLine());
 		}
 		
-		JScrollPane scrollPanelistSymp = new JScrollPane();
-		scrollPanelistSymp.setBounds(175, 658, 293, 110);
-		contentPane.add(scrollPanelistSymp);
 		
-		//GUI-Element JList anlegen
-		JList listsymp = new JList();
-		scrollPanelistSymp.setViewportView(listsymp);
-		listsymp.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) 
-			{
-				
-			}
-		});
-		listsymp.setToolTipText("");
-		listsymp.setModel(new AbstractListModel() {
-			String[] values = new String[] {};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		listsymp.setModel(DLM);
+		
+		
+		
+		
+		
 		
 		final JTextArea taPA = new JTextArea();
 		taPA.setEditable(false);
@@ -380,6 +364,115 @@ public class Patienten_Daten extends JFrame {
 		btnSpeichern.setBounds(641, 858, 115, 29);
 		contentPane.add(btnSpeichern);
 		
+		JLabel lblPatientendatenbersicht = new JLabel("Patientendaten\u00FCbersicht");
+		lblPatientendatenbersicht.setBounds(630, 617, 170, 22);
+		contentPane.add(lblPatientendatenbersicht);
+		
+		
+		
+		
+		// Listmodel für Krankheiten anlegen und Daten einlesen
+		DefaultListModel dlmKrankheiten = new DefaultListModel();
+		while(scKrankheiten.hasNextLine())
+		{
+			dlmKrankheiten.addElement(scKrankheiten.nextLine());
+		}
+		// Erstellen des Scrollfensters für die Krankheiten
+		JScrollPane scrollPanelistKrankheiten = new JScrollPane();
+		scrollPanelistKrankheiten.setSize(559, 59);
+		scrollPanelistKrankheiten.setLocation(641, 121);
+		contentPane.add(scrollPanelistKrankheiten);
+		
+		
+		// Anlegen der Krankheitsliste
+		JList listKrankheiten = new JList();
+		scrollPanelistKrankheiten.setViewportView(listKrankheiten);
+		//listKrankheiten.setBounds(641, 332, 559, 59);
+		//contentPane.add(listKrankheiten);
+		listKrankheiten.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) 
+			{
+				
+			}
+		});
+		listKrankheiten.setToolTipText("");
+		listKrankheiten.setModel(new AbstractListModel() {
+			String[] values = new String[] {};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		listKrankheiten.setModel(dlmKrankheiten);
+		
+		
+		
+		// Listmodel für Krankheiten anlegen und Daten einlesen
+		DefaultListModel dlmAllergien = new DefaultListModel();
+		while(scAllergien.hasNextLine())
+		{
+			dlmAllergien.addElement(scAllergien.nextLine());
+		}
+		
+		JScrollPane scrollPanelistSymp = new JScrollPane();
+		scrollPanelistSymp.setBounds(175, 658, 293, 110);
+		contentPane.add(scrollPanelistSymp);
+		
+		//GUI-Element JList anlegen
+		JList listsymp = new JList();
+		scrollPanelistSymp.setViewportView(listsymp);
+		listsymp.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) 
+			{
+				
+			}
+		});
+		listsymp.setToolTipText("");
+		listsymp.setModel(new AbstractListModel() {
+			String[] values = new String[] {};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		listsymp.setModel(DLM);
+		scrollPanelistSymp.setBounds(250, 658, 293, 110);
+		// Erstellen des Scrollfensters für die Krankheiten
+		JScrollPane scrollPanelistAllergien = new JScrollPane();
+		scrollPanelistAllergien.setSize(559, 59);
+		scrollPanelistAllergien.setLocation(641, 332);
+		scrollPanelistAllergien.setBounds(641, 260, 559, 59);
+		contentPane.add(scrollPanelistAllergien);
+		
+		
+		// Anlegen der Krankheitsliste
+		JList listAllergien = new JList();
+		scrollPanelistAllergien.setViewportView(listAllergien);
+		listAllergien.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) 
+			{
+				
+			}
+		});
+		listAllergien.setToolTipText("");
+		listAllergien.setModel(new AbstractListModel() {
+			String[] values = new String[] {};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		listAllergien.setModel(dlmAllergien);
+		
+		JTextArea txtrWeitereKrankheiten = new JTextArea();
+		txtrWeitereKrankheiten.setBounds(641, 337, 559, 59);
+		contentPane.add(txtrWeitereKrankheiten);
 		
 	}
 }
