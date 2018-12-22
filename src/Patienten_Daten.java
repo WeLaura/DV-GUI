@@ -48,7 +48,7 @@ public class Patienten_Daten extends JFrame {
 	private JTextField tfeGroeße;
 	private JTextField tfeGewicht;
 	private JTextArea taPA;
-	//test für richtigen Import und Funktion von GitHub
+	//test siehst du die Änderung? ich hoffe es doch mal sehr stark..
 	
 
 	/**
