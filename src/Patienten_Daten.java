@@ -85,17 +85,17 @@ public class Patienten_Daten extends JFrame {
 		
 		//Textdatei Symptome einlesen:
 		File symptome = new File("Symptome.txt");
-		Scanner scSymptome = new Scanner(symptome, "UTF-8");
+		Scanner scSymptome = new Scanner(symptome, "UTF-8"); //UTF-8 um Umlaute einzulesen
 		//Ende Datei einlesen!
 		
 		//Textdatei Symptome einlesen:
 		File krankheiten = new File("Krankheit.txt");
-		Scanner scKrankheiten = new Scanner(krankheiten, "UTF-8");
+		Scanner scKrankheiten = new Scanner(krankheiten, "UTF-8"); //UTF-8 um Umlaute einzulesen
 		//Ende Datei einlesen!
 		
 		//Textdatei Symptome einlesen:
 		File allergien = new File("Allergie.txt");
-		Scanner scAllergien = new Scanner(allergien, "UTF-8");
+		Scanner scAllergien = new Scanner(allergien, "UTF-8"); //UTF-8 um Umlaute einzulesen
 		//Ende Datei einlesen!
 		
 		//Objekt-Erzeugung
@@ -175,23 +175,78 @@ public class Patienten_Daten extends JFrame {
 		panel_1.setBounds(175, 420, 1025, 198);
 		contentPane.add(panel_1);
 		
+		JComboBox combxalkh = new JComboBox();
+		combxalkh.setEnabled(false);
+		combxalkh.setBounds(293, 19, 176, 26);
+		panel_1.add(combxalkh);
+		
+		JComboBox combxrauchh = new JComboBox();
+		combxrauchh.setEnabled(false);
+		combxrauchh.setBounds(293, 49, 176, 26);
+		panel_1.add(combxrauchh);
+		
+		JComboBox combxdrh = new JComboBox();
+		combxdrh.setEnabled(false);
+		combxdrh.setBounds(293, 79, 176, 26);
+		panel_1.add(combxdrh);
+		
+		JComboBox combxreh = new JComboBox();
+		combxreh.setEnabled(false);
+		combxreh.setBounds(293, 109, 176, 26);
+		panel_1.add(combxreh);
+		
+		JComboBox combxbewh = new JComboBox();
+		combxbewh.setEnabled(false);
+		combxbewh.setBounds(293, 139, 176, 26);
+		panel_1.add(combxbewh);
+		
 		JCheckBox chckbxAlkohol = new JCheckBox("Alkohol");
+		chckbxAlkohol.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				combxalkh.setEnabled(true);
+			}
+		});
 		chckbxAlkohol.setBounds(0, 20, 113, 25);
 		panel_1.add(chckbxAlkohol);
 		
 		JCheckBox chckbxRauchen = new JCheckBox("Rauchen");
+		chckbxRauchen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				combxrauchh.setEnabled(true);
+			}
+		});
 		chckbxRauchen.setBounds(0, 50, 113, 25);
 		panel_1.add(chckbxRauchen);
 		
 		JCheckBox chckbxDrogen = new JCheckBox("Drogen");
+		chckbxDrogen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				combxdrh.setEnabled(true);
+			}
+		});
 		chckbxDrogen.setBounds(0, 80, 113, 25);
 		panel_1.add(chckbxDrogen);
 		
 		JCheckBox chckbxReisen = new JCheckBox("Reisen");
+		chckbxReisen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				combxreh.setEnabled(true);
+			}
+		});
 		chckbxReisen.setBounds(0, 110, 113, 25);
 		panel_1.add(chckbxReisen);
 		
 		JCheckBox chckbxRegelmBewegung = new JCheckBox("Regelm. Bewegung");
+		chckbxRegelmBewegung.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				combxbewh.setEnabled(true);
+			}
+		});
 		chckbxRegelmBewegung.setBounds(0, 140, 176, 25);
 		panel_1.add(chckbxRegelmBewegung);
 		
@@ -263,31 +318,141 @@ public class Patienten_Daten extends JFrame {
 		textArea_4.setBounds(888, 137, 122, 24);
 		panel_1.add(textArea_4);
 		
-		JComboBox combxalkh = new JComboBox();
-		combxalkh.setBounds(293, 19, 176, 26);
-		panel_1.add(combxalkh);
 		
-		JComboBox combxrauchh = new JComboBox();
-		combxrauchh.setBounds(293, 49, 176, 26);
-		panel_1.add(combxrauchh);
 		
-		JComboBox combxdrh = new JComboBox();
-		combxdrh.setBounds(293, 79, 176, 26);
-		panel_1.add(combxdrh);
+//////////////////////////////////////////////Listen//////////////////////////////////////
 		
-		JComboBox combxreh = new JComboBox();
-		combxreh.setBounds(293, 109, 176, 26);
-		panel_1.add(combxreh);
+		// Listmodel für Krankheiten anlegen und Daten einlesen
+		DefaultListModel dlmKrankheiten = new DefaultListModel();
+		while(scKrankheiten.hasNextLine())
+		{
+			dlmKrankheiten.addElement(scKrankheiten.nextLine());
+		}
 		
-		JComboBox combxbewh = new JComboBox();
-		combxbewh.setBounds(293, 139, 176, 26);
-		panel_1.add(combxbewh);
+		// Erstellen des Scrollfensters für die Krankheiten
+		JScrollPane scrollPanelistKrankheiten = new JScrollPane();
+		scrollPanelistKrankheiten.setSize(559, 59);
+		scrollPanelistKrankheiten.setLocation(641, 121);
+		contentPane.add(scrollPanelistKrankheiten);
+
+
+		// Anlegen der Krankheitsliste
+		JList listKrankheiten = new JList();
+		listKrankheiten.setEnabled(false);
+		scrollPanelistKrankheiten.setViewportView(listKrankheiten);
+		
+		//listKrankheiten.setBounds(641, 332, 559, 59);
+		//contentPane.add(listKrankheiten);
+		listKrankheiten.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) 
+			{
+
+			}
+		});
+		listKrankheiten.setToolTipText("");
+		listKrankheiten.setModel(new AbstractListModel() {
+			String[] values = new String[] {};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		listKrankheiten.setModel(dlmKrankheiten);
+
+
+
+		//Listmodel für Krankheiten anlegen und Daten einlesen
+		DefaultListModel dlmAllergien = new DefaultListModel();
+		while(scAllergien.hasNextLine())
+		{
+			dlmAllergien.addElement(scAllergien.nextLine());
+		}
+
+		JScrollPane scrollPanelistSymp = new JScrollPane();
+		scrollPanelistSymp.setBounds(175, 658, 293, 110);
+		contentPane.add(scrollPanelistSymp);
+
+		//GUI-Element JList anlegen
+		JList listsymp = new JList();
+		scrollPanelistSymp.setViewportView(listsymp);
+		listsymp.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) 
+			{
+
+			}
+		});
+		listsymp.setToolTipText("");
+		listsymp.setModel(new AbstractListModel() {
+			String[] values = new String[] {};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		//Listmodel anlegen und Daten einlesen
+		DefaultListModel DLM = new DefaultListModel();
+		while(scSymptome.hasNextLine())
+		{
+			DLM.addElement(scSymptome.nextLine());
+		}
+		//DLM.addElement(Verwaltungsklasse.SK.keySet());
+
+		listsymp.setModel(DLM);
+		scrollPanelistSymp.setBounds(250, 658, 293, 110);
+		// Erstellen des Scrollfensters für die Krankheiten
+		JScrollPane scrollPanelistAllergien = new JScrollPane();
+		scrollPanelistAllergien.setSize(559, 59);
+		scrollPanelistAllergien.setLocation(641, 332);
+		scrollPanelistAllergien.setBounds(641, 260, 559, 59);
+		contentPane.add(scrollPanelistAllergien);
+
+
+		// Anlegen der Allergieliste
+		JList listAllergien = new JList();
+		listAllergien.setEnabled(false);
+		scrollPanelistAllergien.setViewportView(listAllergien);
+		listAllergien.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) 
+			{
+
+			}
+		});
+		listAllergien.setToolTipText("");
+		listAllergien.setModel(new AbstractListModel() {
+			String[] values = new String[] {};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		listAllergien.setModel(dlmAllergien);
+
+		JTextArea txtrWeitereKrankheiten = new JTextArea();
+		txtrWeitereKrankheiten.setEnabled(false);
+		txtrWeitereKrankheiten.setBounds(641, 337, 559, 59);
+		contentPane.add(txtrWeitereKrankheiten);
+		
+		
+		
+		
 		
 		JLabel lblSymptome = new JLabel("Symptome:");
 		lblSymptome.setBounds(23, 661, 97, 16);
 		contentPane.add(lblSymptome);
 		
 		JRadioButton rbALLja = new JRadioButton("Ja");
+		rbALLja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				listAllergien.setEnabled(true);
+			}
+		});
 		rbALLja.setBounds(175, 269, 83, 25);
 		contentPane.add(rbALLja);
 		
@@ -296,6 +461,12 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(rbALLnein);
 		
 		JRadioButton rbWKja = new JRadioButton("Ja");
+		rbWKja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				txtrWeitereKrankheiten.setEnabled(true);
+			}
+		});
 		rbWKja.setBounds(180, 354, 83, 25);
 		contentPane.add(rbWKja);
 		
@@ -304,6 +475,12 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(rbWKnein);
 		
 		JRadioButton rbFKja = new JRadioButton("Ja");
+		rbFKja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				listKrankheiten.setEnabled(true);
+			}
+		});
 		rbFKja.setBounds(180, 123, 83, 25);
 		contentPane.add(rbFKja);
 		
@@ -367,6 +544,8 @@ public class Patienten_Daten extends JFrame {
 		combxbewh.addItem("täglich");
 		combxbewh.addItem("wöchentlich");
 		combxbewh.addItem("monatlich");
+		
+		
 				
 		
 		
@@ -384,6 +563,7 @@ public class Patienten_Daten extends JFrame {
 				taPA.append("Alter: "+tfeAlter.getText()+"\n");
 				taPA.append("Größe: "+tfeGroeße.getText()+" m"+"\n");
 				taPA.append("Gewicht: "+tfeGewicht.getText()+" kg"+"\n");
+				
 				//Ausgabe des Geschlecht in taPA anhand von rbgsch
 				if(rbgschM.isSelected()==true)
 					taPA.append("Geschlecht: "+"Männlich");
@@ -404,119 +584,6 @@ public class Patienten_Daten extends JFrame {
 		lblPatientendatenbersicht.setBounds(630, 617, 170, 22);
 		contentPane.add(lblPatientendatenbersicht);
 		
-		
-		//////////////////////////////////////////////Listen//////////////////////////////////////
-		
-		// Listmodel für Krankheiten anlegen und Daten einlesen
-		DefaultListModel dlmKrankheiten = new DefaultListModel();
-		while(scKrankheiten.hasNextLine())
-		{
-			dlmKrankheiten.addElement(scKrankheiten.nextLine());
-		}
-		// Erstellen des Scrollfensters für die Krankheiten
-		JScrollPane scrollPanelistKrankheiten = new JScrollPane();
-		scrollPanelistKrankheiten.setSize(559, 59);
-		scrollPanelistKrankheiten.setLocation(641, 121);
-		contentPane.add(scrollPanelistKrankheiten);
-		
-		
-		// Anlegen der Krankheitsliste
-		JList listKrankheiten = new JList();
-		scrollPanelistKrankheiten.setViewportView(listKrankheiten);
-		//listKrankheiten.setBounds(641, 332, 559, 59);
-		//contentPane.add(listKrankheiten);
-		listKrankheiten.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) 
-			{
-				
-			}
-		});
-		listKrankheiten.setToolTipText("");
-		listKrankheiten.setModel(new AbstractListModel() {
-			String[] values = new String[] {};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		listKrankheiten.setModel(dlmKrankheiten);
-		
-		
-		
-		// Listmodel für Krankheiten anlegen und Daten einlesen
-		DefaultListModel dlmAllergien = new DefaultListModel();
-		while(scAllergien.hasNextLine())
-		{
-			dlmAllergien.addElement(scAllergien.nextLine());
-		}
-		
-		JScrollPane scrollPanelistSymp = new JScrollPane();
-		scrollPanelistSymp.setBounds(175, 658, 293, 110);
-		contentPane.add(scrollPanelistSymp);
-		
-		//GUI-Element JList anlegen
-		JList listsymp = new JList();
-		scrollPanelistSymp.setViewportView(listsymp);
-		listsymp.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) 
-			{
-				
-			}
-		});
-		listsymp.setToolTipText("");
-		listsymp.setModel(new AbstractListModel() {
-			String[] values = new String[] {};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		//Listmodel anlegen und Daten einlesen
-				DefaultListModel DLM = new DefaultListModel();
-				while(scSymptome.hasNextLine())
-				{
-					DLM.addElement(scSymptome.nextLine());
-				}
-//				DLM.addElement(Verwaltungsklasse.SK.keySet());
-				
-		listsymp.setModel(DLM);
-		scrollPanelistSymp.setBounds(250, 658, 293, 110);
-		// Erstellen des Scrollfensters für die Krankheiten
-		JScrollPane scrollPanelistAllergien = new JScrollPane();
-		scrollPanelistAllergien.setSize(559, 59);
-		scrollPanelistAllergien.setLocation(641, 332);
-		scrollPanelistAllergien.setBounds(641, 260, 559, 59);
-		contentPane.add(scrollPanelistAllergien);
-		
-		
-		// Anlegen der Krankheitsliste
-		JList listAllergien = new JList();
-		scrollPanelistAllergien.setViewportView(listAllergien);
-		listAllergien.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent e) 
-			{
-				
-			}
-		});
-		listAllergien.setToolTipText("");
-		listAllergien.setModel(new AbstractListModel() {
-			String[] values = new String[] {};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
-		listAllergien.setModel(dlmAllergien);
-		
-		JTextArea txtrWeitereKrankheiten = new JTextArea();
-		txtrWeitereKrankheiten.setBounds(641, 337, 559, 59);
-		contentPane.add(txtrWeitereKrankheiten);
 		
 	}
 }
