@@ -48,7 +48,7 @@ public class Patienten_Daten extends JFrame {
 	private JTextField tfeAlter;
 	private JTextField tfeGroeße;
 	private JTextField tfeGewicht;
-	private JTextArea taPA;
+	//private JTextArea taPA; // unnötig?
 	
 	
 
@@ -635,6 +635,7 @@ public class Patienten_Daten extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				//Ausgabe in der TextArea für die Patientenakte
+				taPA.setText("");
 				taPA.append("Name: "+tfeName.getText()+"\n");
 				taPA.append("Alter: "+tfeAlter.getText()+"\n");
 				taPA.append("Größe: "+tfeGroeße.getText()+" m"+"\n");
@@ -649,8 +650,6 @@ public class Patienten_Daten extends JFrame {
 					taPA.append("Geschlecht: "+"Divers");
 				else if (rbgschM.isSelected()==false && rbgschW.isSelected()==false && rbgschX.isSelected()==false)
 					JOptionPane.showMessageDialog(null,"Bitte eines der beiden Geschlechter wählen!");
-				
-				
 			}
 		});
 		btnSpeichern.setBounds(641, 858, 115, 29);
