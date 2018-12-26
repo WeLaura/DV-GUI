@@ -175,6 +175,83 @@ public class Patienten_Daten extends JFrame {
 		panel_1.setBounds(175, 420, 1025, 198);
 		contentPane.add(panel_1);
 		
+		
+		JLabel lblHufigkeit = new JLabel("H\u00E4ufigkeit:");
+		lblHufigkeit.setBounds(183, 24, 95, 16);
+		panel_1.add(lblHufigkeit);
+		
+		JLabel label_1 = new JLabel("H\u00E4ufigkeit:");
+		label_1.setBounds(183, 54, 95, 16);
+		panel_1.add(label_1);
+		
+		JLabel label_2 = new JLabel("H\u00E4ufigkeit:");
+		label_2.setBounds(183, 84, 95, 16);
+		panel_1.add(label_2);
+		
+		JLabel label_3 = new JLabel("H\u00E4ufigkeit:");
+		label_3.setBounds(183, 114, 95, 16);
+		panel_1.add(label_3);
+		
+		JLabel label_4 = new JLabel("H\u00E4ufigkeit:");
+		label_4.setBounds(183, 144, 95, 16);
+		panel_1.add(label_4);
+		
+		JLabel lblAlkWas = new JLabel("Was:");
+		lblAlkWas.setEnabled(false);
+		lblAlkWas.setBounds(625, 19, 56, 16);
+		panel_1.add(lblAlkWas);
+		
+		JTextArea taAlkWas = new JTextArea();
+		taAlkWas.setEnabled(false);
+		taAlkWas.setBounds(689, 16, 269, 24);
+		panel_1.add(taAlkWas);
+		
+		JLabel lblRauchenAnz = new JLabel("Anzahl:");
+		lblRauchenAnz.setEnabled(false);
+		lblRauchenAnz.setBounds(625, 49, 56, 16);
+		panel_1.add(lblRauchenAnz);
+		
+		JTextArea taRauchenAnz = new JTextArea();
+		taRauchenAnz.setEnabled(false);
+		taRauchenAnz.setBounds(689, 46, 269, 24);
+		panel_1.add(taRauchenAnz);
+		
+		JLabel lblDrogenArt = new JLabel("Art:");
+		lblDrogenArt.setEnabled(false);
+		lblDrogenArt.setBounds(625, 79, 56, 16);
+		panel_1.add(lblDrogenArt);
+		
+		JTextArea taDrogenArt = new JTextArea();
+		taDrogenArt.setEnabled(false);
+		taDrogenArt.setBounds(689, 76, 269, 24);
+		panel_1.add(taDrogenArt);
+		
+		JCheckBox chckbxAuerhalbEuropas = new JCheckBox("Au\u00DFerhalb Europas?");
+		chckbxAuerhalbEuropas.setBounds(625, 105, 176, 25);
+		chckbxAuerhalbEuropas.setEnabled(false);
+		panel_1.add(chckbxAuerhalbEuropas);
+		
+		JLabel lblAnzahl_1 = new JLabel("Anzahl:");
+		lblAnzahl_1.setEnabled(false);
+		lblAnzahl_1.setBounds(625, 139, 56, 16);
+		panel_1.add(lblAnzahl_1);
+		
+		JTextArea taRegelBewegAnz = new JTextArea();
+		taRegelBewegAnz.setEnabled(false);
+		taRegelBewegAnz.setBounds(689, 136, 122, 24);
+		panel_1.add(taRegelBewegAnz);
+		
+		JLabel lblWas_1 = new JLabel("Was:");
+		lblWas_1.setEnabled(false);
+		lblWas_1.setBounds(839, 144, 56, 16);
+		panel_1.add(lblWas_1);
+		
+		JTextArea taRegelBewegWas = new JTextArea();
+		taRegelBewegWas.setEnabled(false);
+		taRegelBewegWas.setBounds(888, 137, 122, 24);
+		panel_1.add(taRegelBewegWas);
+		
+		
 		JComboBox combxalkh = new JComboBox();
 		combxalkh.setEnabled(false);
 		combxalkh.setBounds(293, 19, 176, 26);
@@ -204,7 +281,15 @@ public class Patienten_Daten extends JFrame {
 		chckbxAlkohol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				combxalkh.setEnabled(true);
+				if(chckbxAlkohol.isSelected()) {
+					combxalkh.setEnabled(true);
+					lblAlkWas.setEnabled(true);
+					taAlkWas.setEnabled(true);
+				} else {
+					combxalkh.setEnabled(false);
+					lblAlkWas.setEnabled(false);
+					taAlkWas.setEnabled(false);
+				}
 			}
 		});
 		chckbxAlkohol.setBounds(0, 20, 113, 25);
@@ -214,7 +299,15 @@ public class Patienten_Daten extends JFrame {
 		chckbxRauchen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				combxrauchh.setEnabled(true);
+				if(chckbxRauchen.isSelected()) {
+					combxrauchh.setEnabled(true);
+					lblRauchenAnz.setEnabled(true);
+					taRauchenAnz.setEnabled(true);
+				} else {
+					combxrauchh.setEnabled(false);
+					lblRauchenAnz.setEnabled(false);
+					taRauchenAnz.setEnabled(false);
+				}
 			}
 		});
 		chckbxRauchen.setBounds(0, 50, 113, 25);
@@ -224,7 +317,15 @@ public class Patienten_Daten extends JFrame {
 		chckbxDrogen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				combxdrh.setEnabled(true);
+				if(chckbxDrogen.isSelected()) {
+					combxdrh.setEnabled(true);
+					lblDrogenArt.setEnabled(true);
+					taDrogenArt.setEnabled(true);
+				} else {
+					combxdrh.setEnabled(false);
+					lblDrogenArt.setEnabled(false);
+					taDrogenArt.setEnabled(false);
+				}
 			}
 		});
 		chckbxDrogen.setBounds(0, 80, 113, 25);
@@ -234,7 +335,13 @@ public class Patienten_Daten extends JFrame {
 		chckbxReisen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				combxreh.setEnabled(true);
+				if(chckbxReisen.isSelected()) {
+					combxreh.setEnabled(true);
+					chckbxAuerhalbEuropas.setEnabled(true);
+				} else {
+					combxreh.setEnabled(false);
+					chckbxAuerhalbEuropas.setEnabled(false);
+				}
 			}
 		});
 		chckbxReisen.setBounds(0, 110, 113, 25);
@@ -244,7 +351,19 @@ public class Patienten_Daten extends JFrame {
 		chckbxRegelmBewegung.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				combxbewh.setEnabled(true);
+				if(chckbxRegelmBewegung.isSelected()) {
+					combxbewh.setEnabled(true);
+					lblAnzahl_1.setEnabled(true);
+					lblWas_1.setEnabled(true);
+					taRegelBewegAnz.setEnabled(true);
+					taRegelBewegWas.setEnabled(true);
+				} else {
+					combxbewh.setEnabled(false);
+					lblAnzahl_1.setEnabled(false);
+					lblWas_1.setEnabled(false);
+					taRegelBewegAnz.setEnabled(false);
+					taRegelBewegWas.setEnabled(false);
+				}
 			}
 		});
 		chckbxRegelmBewegung.setBounds(0, 140, 176, 25);
@@ -253,70 +372,6 @@ public class Patienten_Daten extends JFrame {
 		JCheckBox chckbxGesundeErnhrung = new JCheckBox("gesunde Ernährung");
 		chckbxGesundeErnhrung.setBounds(0, 170, 191, 25);
 		panel_1.add(chckbxGesundeErnhrung);
-		
-		JLabel lblHufigkeit = new JLabel("H\u00E4ufigkeit:");
-		lblHufigkeit.setBounds(183, 24, 95, 16);
-		panel_1.add(lblHufigkeit);
-		
-		JLabel label_1 = new JLabel("H\u00E4ufigkeit:");
-		label_1.setBounds(183, 54, 95, 16);
-		panel_1.add(label_1);
-		
-		JLabel label_2 = new JLabel("H\u00E4ufigkeit:");
-		label_2.setBounds(183, 84, 95, 16);
-		panel_1.add(label_2);
-		
-		JLabel label_3 = new JLabel("H\u00E4ufigkeit:");
-		label_3.setBounds(183, 114, 95, 16);
-		panel_1.add(label_3);
-		
-		JLabel label_4 = new JLabel("H\u00E4ufigkeit:");
-		label_4.setBounds(183, 144, 95, 16);
-		panel_1.add(label_4);
-		
-		JLabel lblWas = new JLabel("Was:");
-		lblWas.setBounds(625, 19, 56, 16);
-		panel_1.add(lblWas);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(689, 16, 269, 24);
-		panel_1.add(textArea);
-		
-		JLabel lblAnzahl = new JLabel("Anzahl:");
-		lblAnzahl.setBounds(625, 49, 56, 16);
-		panel_1.add(lblAnzahl);
-		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(689, 46, 269, 24);
-		panel_1.add(textArea_1);
-		
-		JLabel lblArt = new JLabel("Art:");
-		lblArt.setBounds(625, 79, 56, 16);
-		panel_1.add(lblArt);
-		
-		JTextArea textArea_2 = new JTextArea();
-		textArea_2.setBounds(689, 76, 269, 24);
-		panel_1.add(textArea_2);
-		
-		JCheckBox chckbxAuerhalbEuropas = new JCheckBox("Au\u00DFerhalb Europas?");
-		chckbxAuerhalbEuropas.setBounds(625, 105, 176, 25);
-		panel_1.add(chckbxAuerhalbEuropas);
-		
-		JLabel lblAnzahl_1 = new JLabel("Anzahl:");
-		lblAnzahl_1.setBounds(625, 139, 56, 16);
-		panel_1.add(lblAnzahl_1);
-		
-		JTextArea textArea_3 = new JTextArea();
-		textArea_3.setBounds(689, 136, 122, 24);
-		panel_1.add(textArea_3);
-		
-		JLabel lblWas_1 = new JLabel("Was:");
-		lblWas_1.setBounds(839, 144, 56, 16);
-		panel_1.add(lblWas_1);
-		
-		JTextArea textArea_4 = new JTextArea();
-		textArea_4.setBounds(888, 137, 122, 24);
-		panel_1.add(textArea_4);
 		
 		
 		
@@ -457,6 +512,13 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(rbALLja);
 		
 		JRadioButton rbALLnein = new JRadioButton("Nein");
+		rbALLnein.setSelected(true);
+		rbALLnein.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				listAllergien.setEnabled(false);
+			}
+		});
 		rbALLnein.setBounds(277, 269, 127, 25);
 		contentPane.add(rbALLnein);
 		
@@ -471,6 +533,13 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(rbWKja);
 		
 		JRadioButton rbWKnein = new JRadioButton("Nein");
+		rbWKnein.setSelected(true);
+		rbWKnein.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				txtrWeitereKrankheiten.setEnabled(false);
+			}
+		});
 		rbWKnein.setBounds(277, 354, 127, 25);
 		contentPane.add(rbWKnein);
 		
@@ -485,6 +554,13 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(rbFKja);
 		
 		JRadioButton rbFKnein = new JRadioButton("Nein");
+		rbFKnein.setSelected(true);
+		rbFKnein.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				listKrankheiten.setEnabled(false);
+			}
+		});
 		rbFKnein.setBounds(277, 123, 127, 25);
 		contentPane.add(rbFKnein);
 		
