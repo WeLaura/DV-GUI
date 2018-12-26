@@ -40,6 +40,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class Patienten_Daten extends JFrame {
 
 	private JPanel contentPane;
@@ -48,7 +49,7 @@ public class Patienten_Daten extends JFrame {
 	private JTextField tfeGroeße;
 	private JTextField tfeGewicht;
 	private JTextArea taPA;
-	//test siehst du die Änderung? ich hoffe es doch mal sehr stark..
+	
 	
 
 	/**
@@ -97,7 +98,7 @@ public class Patienten_Daten extends JFrame {
 		Scanner scAllergien = new Scanner(allergien, "UTF-8");
 		//Ende Datei einlesen!
 		
-		
+				
 		JLabel lblName = new JLabel("Name:");
 		lblName.setBounds(23, 32, 58, 33);
 		contentPane.add(lblName);
@@ -299,6 +300,8 @@ public class Patienten_Daten extends JFrame {
 		rbgschX.setBounds(941, 36, 250, 25);
 		contentPane.add(rbgschX);
 		
+		////////////////////////////////////////ButtonGroups/////////////////////////
+		
 		//ButtonGroup Geschlecht
 		ButtonGroup Geschlecht = new ButtonGroup();
 		Geschlecht.add(rbgschM);
@@ -322,12 +325,6 @@ public class Patienten_Daten extends JFrame {
 		
 		
 		
-		//Listmodel anlegen und Daten einlesen
-		DefaultListModel DLM = new DefaultListModel();
-		while(scSymptome.hasNextLine())
-		{
-			DLM.addElement(scSymptome.nextLine());
-		}
 		
 		
 		
@@ -371,7 +368,7 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(lblPatientendatenbersicht);
 		
 		
-		
+		//////////////////////////////////////////////Listen//////////////////////////////////////
 		
 		// Listmodel für Krankheiten anlegen und Daten einlesen
 		DefaultListModel dlmKrankheiten = new DefaultListModel();
@@ -441,6 +438,17 @@ public class Patienten_Daten extends JFrame {
 				return values[index];
 			}
 		});
+		//Listmodel anlegen und Daten einlesen
+				DefaultListModel DLM = new DefaultListModel();
+//				while(scSymptome.hasNextLine())
+//				{
+//					DLM.addElement(scSymptome.nextLine());
+//				}
+				//DLM.addElement(Verwaltungsklasse.SK);
+				//Versuch aus der Hashmap aus Verwaltungsklasse den ersten Wert in einer ArrayList zu speichern
+				ArrayList<String> Symptome = new ArrayList<String>(Verwaltungsklasse.SK.keySet());
+				listsymp.setListData(Symptome.toString());
+				//
 		listsymp.setModel(DLM);
 		scrollPanelistSymp.setBounds(250, 658, 293, 110);
 		// Erstellen des Scrollfensters für die Krankheiten
