@@ -98,6 +98,9 @@ public class Patienten_Daten extends JFrame {
 		Scanner scAllergien = new Scanner(allergien, "UTF-8");
 		//Ende Datei einlesen!
 		
+		//Objekt-Erzeugung
+		//Verwaltungsklasse vk = new Verwaltungsklasse();
+		
 				
 		JLabel lblName = new JLabel("Name:");
 		lblName.setBounds(23, 32, 58, 33);
@@ -169,96 +172,116 @@ public class Patienten_Daten extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBounds(175, 420, 1025, 184);
+		panel_1.setBounds(175, 420, 1025, 198);
 		contentPane.add(panel_1);
 		
 		JCheckBox chckbxAlkohol = new JCheckBox("Alkohol");
-		chckbxAlkohol.setBounds(0, 0, 113, 25);
+		chckbxAlkohol.setBounds(0, 20, 113, 25);
 		panel_1.add(chckbxAlkohol);
 		
 		JCheckBox chckbxRauchen = new JCheckBox("Rauchen");
-		chckbxRauchen.setBounds(0, 30, 113, 25);
+		chckbxRauchen.setBounds(0, 50, 113, 25);
 		panel_1.add(chckbxRauchen);
 		
 		JCheckBox chckbxDrogen = new JCheckBox("Drogen");
-		chckbxDrogen.setBounds(0, 60, 113, 25);
+		chckbxDrogen.setBounds(0, 80, 113, 25);
 		panel_1.add(chckbxDrogen);
 		
 		JCheckBox chckbxReisen = new JCheckBox("Reisen");
-		chckbxReisen.setBounds(0, 90, 113, 25);
+		chckbxReisen.setBounds(0, 110, 113, 25);
 		panel_1.add(chckbxReisen);
 		
 		JCheckBox chckbxRegelmBewegung = new JCheckBox("Regelm. Bewegung");
-		chckbxRegelmBewegung.setBounds(0, 120, 176, 25);
+		chckbxRegelmBewegung.setBounds(0, 140, 176, 25);
 		panel_1.add(chckbxRegelmBewegung);
 		
 		JCheckBox chckbxGesundeErnhrung = new JCheckBox("gesunde Ernährung");
-		chckbxGesundeErnhrung.setBounds(0, 150, 191, 25);
+		chckbxGesundeErnhrung.setBounds(0, 170, 191, 25);
 		panel_1.add(chckbxGesundeErnhrung);
 		
 		JLabel lblHufigkeit = new JLabel("H\u00E4ufigkeit:");
-		lblHufigkeit.setBounds(183, 4, 95, 16);
+		lblHufigkeit.setBounds(183, 24, 95, 16);
 		panel_1.add(lblHufigkeit);
 		
 		JLabel label_1 = new JLabel("H\u00E4ufigkeit:");
-		label_1.setBounds(183, 34, 95, 16);
+		label_1.setBounds(183, 54, 95, 16);
 		panel_1.add(label_1);
 		
 		JLabel label_2 = new JLabel("H\u00E4ufigkeit:");
-		label_2.setBounds(183, 64, 95, 16);
+		label_2.setBounds(183, 84, 95, 16);
 		panel_1.add(label_2);
 		
 		JLabel label_3 = new JLabel("H\u00E4ufigkeit:");
-		label_3.setBounds(183, 94, 95, 16);
+		label_3.setBounds(183, 114, 95, 16);
 		panel_1.add(label_3);
 		
 		JLabel label_4 = new JLabel("H\u00E4ufigkeit:");
-		label_4.setBounds(183, 124, 95, 16);
+		label_4.setBounds(183, 144, 95, 16);
 		panel_1.add(label_4);
 		
 		JLabel lblWas = new JLabel("Was:");
-		lblWas.setBounds(625, 4, 56, 16);
+		lblWas.setBounds(625, 19, 56, 16);
 		panel_1.add(lblWas);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(689, 1, 269, 24);
+		textArea.setBounds(689, 16, 269, 24);
 		panel_1.add(textArea);
 		
 		JLabel lblAnzahl = new JLabel("Anzahl:");
-		lblAnzahl.setBounds(625, 34, 56, 16);
+		lblAnzahl.setBounds(625, 49, 56, 16);
 		panel_1.add(lblAnzahl);
 		
 		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(689, 31, 269, 24);
+		textArea_1.setBounds(689, 46, 269, 24);
 		panel_1.add(textArea_1);
 		
 		JLabel lblArt = new JLabel("Art:");
-		lblArt.setBounds(625, 64, 56, 16);
+		lblArt.setBounds(625, 79, 56, 16);
 		panel_1.add(lblArt);
 		
 		JTextArea textArea_2 = new JTextArea();
-		textArea_2.setBounds(689, 61, 269, 24);
+		textArea_2.setBounds(689, 76, 269, 24);
 		panel_1.add(textArea_2);
 		
 		JCheckBox chckbxAuerhalbEuropas = new JCheckBox("Au\u00DFerhalb Europas?");
-		chckbxAuerhalbEuropas.setBounds(625, 90, 176, 25);
+		chckbxAuerhalbEuropas.setBounds(625, 105, 176, 25);
 		panel_1.add(chckbxAuerhalbEuropas);
 		
 		JLabel lblAnzahl_1 = new JLabel("Anzahl:");
-		lblAnzahl_1.setBounds(625, 124, 56, 16);
+		lblAnzahl_1.setBounds(625, 139, 56, 16);
 		panel_1.add(lblAnzahl_1);
 		
 		JTextArea textArea_3 = new JTextArea();
-		textArea_3.setBounds(689, 121, 122, 24);
+		textArea_3.setBounds(689, 136, 122, 24);
 		panel_1.add(textArea_3);
 		
 		JLabel lblWas_1 = new JLabel("Was:");
-		lblWas_1.setBounds(839, 124, 56, 16);
+		lblWas_1.setBounds(839, 144, 56, 16);
 		panel_1.add(lblWas_1);
 		
 		JTextArea textArea_4 = new JTextArea();
-		textArea_4.setBounds(891, 121, 122, 24);
+		textArea_4.setBounds(888, 137, 122, 24);
 		panel_1.add(textArea_4);
+		
+		JComboBox combxalkh = new JComboBox();
+		combxalkh.setBounds(293, 19, 176, 26);
+		panel_1.add(combxalkh);
+		
+		JComboBox combxrauchh = new JComboBox();
+		combxrauchh.setBounds(293, 49, 176, 26);
+		panel_1.add(combxrauchh);
+		
+		JComboBox combxdrh = new JComboBox();
+		combxdrh.setBounds(293, 79, 176, 26);
+		panel_1.add(combxdrh);
+		
+		JComboBox combxreh = new JComboBox();
+		combxreh.setBounds(293, 109, 176, 26);
+		panel_1.add(combxreh);
+		
+		JComboBox combxbewh = new JComboBox();
+		combxbewh.setBounds(293, 139, 176, 26);
+		panel_1.add(combxbewh);
 		
 		JLabel lblSymptome = new JLabel("Symptome:");
 		lblSymptome.setBounds(23, 661, 97, 16);
@@ -323,14 +346,28 @@ public class Patienten_Daten extends JFrame {
 		weitereKrankheiten.add(rbWKja);
 		weitereKrankheiten.add(rbWKnein);
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		//Auswahlmöglichkeit für JComboBox für jeweilige Häufigkeit 
+		//Alkohol-Häufigkeit
+		combxalkh.addItem("täglich");
+		combxalkh.addItem("wöchentlich");
+		combxalkh.addItem("monatlich");
+		//Rauchen-Häufigkeit
+		combxrauchh.addItem("täglich");
+		combxrauchh.addItem("wöchentlich");
+		combxrauchh.addItem("monatlich");
+		//Drogen-Häufigkeit
+		combxdrh.addItem("täglich");
+		combxdrh.addItem("wöchentlich");
+		combxdrh.addItem("monatlich");
+		//Reisen-Häufigkeit
+		combxreh.addItem("täglich");
+		combxreh.addItem("wöchentlich");
+		combxreh.addItem("monatlich");
+		//Regelmäßige-Bewegung-Häufigkeit
+		combxbewh.addItem("täglich");
+		combxbewh.addItem("wöchentlich");
+		combxbewh.addItem("monatlich");
+				
 		
 		
 		final JTextArea taPA = new JTextArea();
@@ -440,15 +477,12 @@ public class Patienten_Daten extends JFrame {
 		});
 		//Listmodel anlegen und Daten einlesen
 				DefaultListModel DLM = new DefaultListModel();
-//				while(scSymptome.hasNextLine())
-//				{
-//					DLM.addElement(scSymptome.nextLine());
-//				}
-				//DLM.addElement(Verwaltungsklasse.SK);
-				//Versuch aus der Hashmap aus Verwaltungsklasse den ersten Wert in einer ArrayList zu speichern
-				ArrayList<String> Symptome = new ArrayList<String>(Verwaltungsklasse.SK.keySet());
-				listsymp.setListData(Symptome.toString());
-				//
+				while(scSymptome.hasNextLine())
+				{
+					DLM.addElement(scSymptome.nextLine());
+				}
+//				DLM.addElement(Verwaltungsklasse.SK.keySet());
+				
 		listsymp.setModel(DLM);
 		scrollPanelistSymp.setBounds(250, 658, 293, 110);
 		// Erstellen des Scrollfensters für die Krankheiten
