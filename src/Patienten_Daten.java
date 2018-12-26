@@ -585,5 +585,8 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(lblPatientendatenbersicht);
 		
 		
+		//Fachklassenanbindung oder so
+		//bzw. Variablenwerte
+		
 	}
 }
