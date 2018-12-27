@@ -14,9 +14,9 @@ public class Patient
     private double Groesse;
     private double Gewicht;
     private String Geschlecht;
-    private String[] FamKrankheiten;
-    private String[] Allergien;
-    private String[] weitKrankheiten;
+    private ArrayList<String> FamKrankheiten;
+    private ArrayList<String> Allergien;
+    private ArrayList<String> weitKrankheiten;
     private String[] Angewohnheiten;
     private ArrayList<String> Symptome;         //wurde als Attribut nachträglich hinzugefügt
     private ArrayList<String> ListeAlteSuchen;
@@ -31,9 +31,9 @@ public class Patient
         Groesse=0;
         Gewicht=0;
         Geschlecht=null;
-        FamKrankheiten=null;
-        Allergien=null;
-        weitKrankheiten=null;
+        FamKrankheiten=new ArrayList<String>();
+        Allergien=new ArrayList<String>();
+        weitKrankheiten=new ArrayList<String>();
         Angewohnheiten=null;
         Symptome=new ArrayList<String>();
         ListeAlteSuchen=new ArrayList<String>();
@@ -44,7 +44,7 @@ public class Patient
      * @param  y    ein Beispielparameter für eine Methode
      * @return        die Summe aus x und y
      */
-    public void EingabeDaten(String n,int a,double g, double ge,String gesch,String[] fam, String[] all,String[] we,String[] ang)
+    public void EingabeDaten(String n,int a,double g, double ge,String gesch,ArrayList<String> fam, ArrayList<String> all,ArrayList<String> we,String[] ang)
     {
         SetName(n);
         SetAlter(a);
@@ -239,7 +239,7 @@ public class Patient
      * 
      * @return  FamKrankheiten  (Attribut FamKrankheiten)
      */
-    public String[] GetFamKrankheiten()
+    public ArrayList<String> GetFamKrankheiten()
     {
         return FamKrankheiten;
     }
@@ -249,7 +249,7 @@ public class Patient
      * 
      * @param  n    (String[] n zum setzen der FamKrankheiten)
      */
-    public void SetFamKrankheiten(String[] n)
+    public void SetFamKrankheiten(ArrayList<String> n)
     {
         FamKrankheiten=n;
     }
@@ -259,7 +259,7 @@ public class Patient
      * 
      * @return  Allergien   (Attribut Allergien)
      */
-    public String[] GetAllergien()
+    public ArrayList<String> GetAllergien()
     {
         return Allergien;
     }
@@ -269,7 +269,7 @@ public class Patient
      * 
      * @param  n    (String[] n zum setzen der Allergien)
      */
-    public void SetAllergien(String[] n)
+    public void SetAllergien(ArrayList<String> n)
     {
         Allergien=n;
     }
@@ -279,7 +279,7 @@ public class Patient
      * 
      * @return  weitKrankheiten (Attribut weitKrankheiten)
      */
-    public String[] GetweitKrankheiten()
+    public ArrayList<String> GetweitKrankheiten()
     {
         return weitKrankheiten;
     }
@@ -287,11 +287,11 @@ public class Patient
     /**
      * Set-Methode für das Attribut weitKrankheiten
      * 
-     * @param  n    (String[] n zum setzen der weitKrankheiten)
+     * @param  we    (String[] n zum setzen der weitKrankheiten)
      */
-    public void SetweitKrankheiten(String[] n)
+    public void SetweitKrankheiten(ArrayList<String> we)
     {
-        weitKrankheiten=n;
+        weitKrankheiten=we;
     }
     
     
@@ -313,5 +313,21 @@ public class Patient
     public void SetAngewohnheiten(String[] n)
     {
         Angewohnheiten=n;
+    }
+    
+    /**
+     * Set-Methode f�r das Attribut Symptome
+     * @param pSymptome
+     */
+    public void setSymptome(ArrayList<String> pSymptome) {
+    	this.Symptome = pSymptome;
+    }
+    
+    /**
+     * Get-Methode f�r das Attribut Symptome
+     * @return Liste mit Symptomen
+     */
+    public ArrayList<String> getSymptome() {
+    	return this.Symptome;
     }
 }

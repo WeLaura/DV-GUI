@@ -21,6 +21,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JTextPane;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
@@ -46,9 +48,11 @@ public class Patienten_Daten extends JFrame {
 	private JPanel contentPane;
 	private JTextField tfeName;
 	private JTextField tfeAlter;
-	private JTextField tfeGroeße;
+	private JTextField tfeGroesse;
 	private JTextField tfeGewicht;
 	//private JTextArea taPA; // unnötig?
+	
+	Patient objPatient = new Patient();
 	
 	
 
@@ -136,10 +140,10 @@ public class Patienten_Daten extends JFrame {
 		tfeAlter.setBounds(402, 37, 90, 22);
 		contentPane.add(tfeAlter);
 		
-		tfeGroeße = new JTextField();
-		tfeGroeße.setColumns(10);
-		tfeGroeße.setBounds(402, 78, 90, 22);
-		contentPane.add(tfeGroeße);
+		tfeGroesse = new JTextField();
+		tfeGroesse.setColumns(10);
+		tfeGroesse.setBounds(402, 78, 90, 22);
+		contentPane.add(tfeGroesse);
 		
 		tfeGewicht = new JTextField();
 		tfeGewicht.setColumns(10);
@@ -392,20 +396,18 @@ public class Patienten_Daten extends JFrame {
 
 
 		// Anlegen der Krankheitsliste
-		JList listKrankheiten = new JList();
-		listKrankheiten.setEnabled(false);
-		scrollPanelistKrankheiten.setViewportView(listKrankheiten);
-		
-		//listKrankheiten.setBounds(641, 332, 559, 59);
-		//contentPane.add(listKrankheiten);
-		listKrankheiten.addListSelectionListener(new ListSelectionListener() {
+		JList lstFamilienKrankheiten = new JList();
+		lstFamilienKrankheiten.setEnabled(false);
+		lstFamilienKrankheiten.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION); // stellt sicher, dass eine Mehrauswahl möglich ist
+		scrollPanelistKrankheiten.setViewportView(lstFamilienKrankheiten);
+		lstFamilienKrankheiten.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) 
 			{
 
 			}
 		});
-		listKrankheiten.setToolTipText("");
-		listKrankheiten.setModel(new AbstractListModel() {
+		lstFamilienKrankheiten.setToolTipText("");
+		lstFamilienKrankheiten.setModel(new AbstractListModel() {
 			String[] values = new String[] {};
 			public int getSize() {
 				return values.length;
@@ -414,7 +416,7 @@ public class Patienten_Daten extends JFrame {
 				return values[index];
 			}
 		});
-		listKrankheiten.setModel(dlmKrankheiten);
+		lstFamilienKrankheiten.setModel(dlmKrankheiten);
 
 
 
@@ -467,17 +469,17 @@ public class Patienten_Daten extends JFrame {
 
 
 		// Anlegen der Allergieliste
-		JList listAllergien = new JList();
-		listAllergien.setEnabled(false);
-		scrollPanelistAllergien.setViewportView(listAllergien);
-		listAllergien.addListSelectionListener(new ListSelectionListener() {
+		JList lstAllergien = new JList();
+		lstAllergien.setEnabled(false);
+		scrollPanelistAllergien.setViewportView(lstAllergien);
+		lstAllergien.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) 
 			{
 
 			}
 		});
-		listAllergien.setToolTipText("");
-		listAllergien.setModel(new AbstractListModel() {
+		lstAllergien.setToolTipText("");
+		lstAllergien.setModel(new AbstractListModel() {
 			String[] values = new String[] {};
 			public int getSize() {
 				return values.length;
@@ -486,12 +488,12 @@ public class Patienten_Daten extends JFrame {
 				return values[index];
 			}
 		});
-		listAllergien.setModel(dlmAllergien);
+		lstAllergien.setModel(dlmAllergien);
 
-		JTextArea txtrWeitereKrankheiten = new JTextArea();
-		txtrWeitereKrankheiten.setEnabled(false);
-		txtrWeitereKrankheiten.setBounds(641, 337, 559, 59);
-		contentPane.add(txtrWeitereKrankheiten);
+		JTextArea taWeitereKrankheiten = new JTextArea();
+		taWeitereKrankheiten.setEnabled(false);
+		taWeitereKrankheiten.setBounds(641, 337, 559, 59);
+		contentPane.add(taWeitereKrankheiten);
 		
 		
 		
@@ -505,7 +507,7 @@ public class Patienten_Daten extends JFrame {
 		rbALLja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				listAllergien.setEnabled(true);
+				lstAllergien.setEnabled(true);
 			}
 		});
 		rbALLja.setBounds(175, 269, 83, 25);
@@ -516,7 +518,7 @@ public class Patienten_Daten extends JFrame {
 		rbALLnein.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				listAllergien.setEnabled(false);
+				lstAllergien.setEnabled(false);
 			}
 		});
 		rbALLnein.setBounds(277, 269, 127, 25);
@@ -526,7 +528,7 @@ public class Patienten_Daten extends JFrame {
 		rbWKja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				txtrWeitereKrankheiten.setEnabled(true);
+				taWeitereKrankheiten.setEnabled(true);
 			}
 		});
 		rbWKja.setBounds(180, 354, 83, 25);
@@ -537,7 +539,7 @@ public class Patienten_Daten extends JFrame {
 		rbWKnein.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				txtrWeitereKrankheiten.setEnabled(false);
+				taWeitereKrankheiten.setEnabled(false);
 			}
 		});
 		rbWKnein.setBounds(277, 354, 127, 25);
@@ -547,7 +549,7 @@ public class Patienten_Daten extends JFrame {
 		rbFKja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				listKrankheiten.setEnabled(true);
+				lstFamilienKrankheiten.setEnabled(true);
 			}
 		});
 		rbFKja.setBounds(180, 123, 83, 25);
@@ -558,7 +560,7 @@ public class Patienten_Daten extends JFrame {
 		rbFKnein.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				listKrankheiten.setEnabled(false);
+				lstFamilienKrankheiten.setEnabled(false);
 			}
 		});
 		rbFKnein.setBounds(277, 123, 127, 25);
@@ -634,11 +636,13 @@ public class Patienten_Daten extends JFrame {
 		btnSpeichern.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
+				Boolean datenSindOK = true;
+				
 				//Ausgabe in der TextArea für die Patientenakte
 				taPA.setText("");
 				taPA.append("Name: "+tfeName.getText()+"\n");
 				taPA.append("Alter: "+tfeAlter.getText()+"\n");
-				taPA.append("Größe: "+tfeGroeße.getText()+" m"+"\n");
+				taPA.append("Größe: "+tfeGroesse.getText()+" m"+"\n");
 				taPA.append("Gewicht: "+tfeGewicht.getText()+" kg"+"\n");
 				
 				//Ausgabe des Geschlecht in taPA anhand von rbgsch
@@ -650,6 +654,79 @@ public class Patienten_Daten extends JFrame {
 					taPA.append("Geschlecht: "+"Divers");
 				else if (rbgschM.isSelected()==false && rbgschW.isSelected()==false && rbgschX.isSelected()==false)
 					JOptionPane.showMessageDialog(null,"Bitte eines der beiden Geschlechter wählen!");
+				
+				
+				
+				/* Übergabe der Patientendaten an die Klasse Patient
+				 * 
+				 * Die Überprüfung der Daten muss erfolgen, bevor diese an die Klasse Patient übergeben werden.
+				 * 
+				 */
+				if(datenSindOK == true) {
+					objPatient.SetName(tfeName.getText());
+					objPatient.SetAlter(Integer.parseInt(tfeAlter.getText()));
+					objPatient.SetGroesse(Double.parseDouble(tfeGroesse.getText()));
+					objPatient.SetGewicht(Double.parseDouble(tfeGewicht.getText()));
+					
+					if(rbgschM.isSelected()==true) {
+						objPatient.SetGeschlecht("Männlich");
+					} else if (rbgschW.isSelected()==true) {
+						objPatient.SetGeschlecht("Weiblich");
+					} else if (rbgschX.isSelected()==true) {
+						objPatient.SetGeschlecht("Divers");
+					}
+					
+					ArrayList<String> aktiveFamilienKrankheiten = new ArrayList<String>();
+					// Wenn Familienkrankheiten vorliegen, werden diese übergeben, ansonsten wird die Liste leer übergeben
+					if(rbFKja.isSelected()==true) {
+						ListModel lm = lstFamilienKrankheiten.getModel();
+						int sel[] = lstFamilienKrankheiten.getSelectedIndices();
+						for(int i=0; i<sel.length; ++i) {
+							aktiveFamilienKrankheiten.add((String)lm.getElementAt(sel[i]));
+						}
+					}
+					objPatient.SetFamKrankheiten(aktiveFamilienKrankheiten);
+					
+					ArrayList<String> aktiveAllergien = new ArrayList<String>();
+					// Wenn Allergien vorliegen, werden diese übergeben, ansonsten wird die Liste leer übergeben
+					if(rbALLja.isSelected()==true) {
+						ListModel lm = lstAllergien.getModel();
+						int sel[] = lstAllergien.getSelectedIndices();
+						for(int i=0; i<sel.length; ++i) {
+							aktiveAllergien.add((String)lm.getElementAt(sel[i]));
+						}
+					}
+					objPatient.SetAllergien(aktiveAllergien);
+					
+					ArrayList<String> aktiveWeitereKrankheiten = new ArrayList<String>();
+					if(rbWKja.isSelected()==true && taWeitereKrankheiten.getText() != "") {
+						int i = 0;
+						try {
+							while ( i < taWeitereKrankheiten.getLineCount() ) {
+								int offset = taWeitereKrankheiten.getLineStartOffset( i );
+								int len = taWeitereKrankheiten.getLineEndOffset( i ) - offset;
+								aktiveWeitereKrankheiten.add( taWeitereKrankheiten.getText( offset, len ) );
+								i++;
+							}
+						}
+						catch ( Exception exc ) {
+							exc.printStackTrace();
+						}
+					}
+					objPatient.SetweitKrankheiten(aktiveWeitereKrankheiten);
+					
+					ArrayList<String> aktiveSymptome = new ArrayList<String>();
+					// Wenn Symptome vorliegen, werden diese übergeben, ansonsten wird die Liste leer übergeben
+					if(rbALLja.isSelected()==true) {
+						ListModel lm = lstAllergien.getModel();
+						int sel[] = lstAllergien.getSelectedIndices();
+						for(int i=0; i<sel.length; ++i) {
+							aktiveSymptome.add((String)lm.getElementAt(sel[i]));
+						}
+					}
+					objPatient.setSymptome(aktiveSymptome);
+				}
+				
 			}
 		});
 		btnSpeichern.setBounds(641, 858, 115, 29);
@@ -662,6 +739,7 @@ public class Patienten_Daten extends JFrame {
 		
 		//Fachklassenanbindung oder so
 		//bzw. Variablenwerte
+		
 		
 	}
 }
