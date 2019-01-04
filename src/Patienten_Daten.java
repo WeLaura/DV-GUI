@@ -27,6 +27,7 @@ import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JEditorPane;
+import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 
@@ -50,7 +51,7 @@ public class Patienten_Daten extends JFrame {
 	private JTextField tfeAlter;
 	private JTextField tfeGroesse;
 	private JTextField tfeGewicht;
-	//private JTextArea taPA; // unnötig?
+	private JTextArea taPA; // unnötig?
 	
 	Patient objPatient = new Patient();
 	
@@ -726,15 +727,87 @@ public class Patienten_Daten extends JFrame {
 					}
 					objPatient.setSymptome(aktiveSymptome);
 				}
-				
+				//Methodenaufruf um als Datei zu speichern
+				save();
+			}
+			//Methode um als Datei zu speichern
+			protected void save() {
+				// TODO Auto-generated method stub
+				final JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showSaveDialog(getParent());
+
+				if ( returnVal == JFileChooser.APPROVE_OPTION){
+				File file = fc.getSelectedFile();
+				saveText(file);
+				}
+				}
+
+				private void saveText(File file){
+				try{
+				FileWriter writer = new FileWriter(file);
+				String text = taPA.getText();
+				writer.write(text);
+				writer.flush();
+				writer.close();
+				}
+				catch(IOException e) {
+				e.printStackTrace();
+				}
+
 			}
 		});
-		btnSpeichern.setBounds(641, 858, 115, 29);
+		btnSpeichern.setBounds(579, 858, 115, 29);
 		contentPane.add(btnSpeichern);
 		
 		JLabel lblPatientendatenbersicht = new JLabel("Patientendaten\u00FCbersicht");
 		lblPatientendatenbersicht.setBounds(630, 617, 170, 22);
 		contentPane.add(lblPatientendatenbersicht);
+		
+		JButton btnLaden = new JButton("Laden");
+		btnLaden.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0)
+			{
+				load();
+			}
+
+			private void load() {
+				// TODO Auto-generated method stub
+				final JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showOpenDialog(getParent());
+				//JFrame durch getParent() ersetzt
+
+				if(returnVal == JFileChooser.APPROVE_OPTION){
+				File file = fc.getSelectedFile();
+				showText(file);
+				}
+
+				private void showText(File file) //komischer Fehler, den ich noch behebe
+				{
+				StringBuffer buf = new StringBuffer();
+				
+				if(file.exists())
+				{
+				try{
+				BufferedReader reader = new BufferedReader(new FileReader(file));
+				String line = "";
+				while((line = reader.readLine())!=null)
+				{
+				buf.append(line+"\n");
+				}
+				reader.close();
+				}
+				catch(FileNotFoundException e){
+				e.printStackTrace();
+				}
+				catch(IOException e){
+				e.printStackTrace();
+				}
+				}
+				taPA.setText(buf.toString());
+			}
+			}});
+		btnLaden.setBounds(740, 858, 115, 29);
+		contentPane.add(btnLaden);
 		
 		
 		//Fachklassenanbindung oder so
