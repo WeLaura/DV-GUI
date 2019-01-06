@@ -132,7 +132,7 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(lblFamilienkrankheiten);
 		
 		tfeName = new JTextField();
-		tfeName.setBounds(108, 37, 116, 22);
+		tfeName.setBounds(136, 37, 90, 22);
 		contentPane.add(tfeName);
 		tfeName.setColumns(10);
 		
@@ -809,9 +809,56 @@ public class Patienten_Daten extends JFrame {
 		btnLaden.setBounds(740, 858, 115, 29);
 		contentPane.add(btnLaden);
 		
+		JButton btnEingabeZurcksetzen = new JButton("Eingabe zur\u00FCcksetzen");
+		btnEingabeZurcksetzen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				loeschen();
+			}
+
+			private void loeschen() {
+				// TODO Auto-generated method stub
+				tfeName.setText("");
+				tfeAlter.setText("");
+				tfeGroesse.setText("");
+				tfeGewicht.setText("");
+				
+				rbgschM.setSelected(false);
+				rbgschW.setSelected(false);
+				rbgschX.setSelected(false);
+				
+				rbFKja.setSelected(false);
+				rbFKnein.setSelected(true);
+				
+				rbWKja.setSelected(false);
+				rbWKnein.setSelected(true);
+				
+				rbALLja.setSelected(false);
+				rbALLnein.setSelected(true);
+				
+				chckbxAlkohol.setSelected(false);
+				chckbxRauchen.setSelected(false);
+				chckbxDrogen.setSelected(false);
+				chckbxReisen.setSelected(false);
+				chckbxRegelmBewegung.setSelected(false);
+				chckbxGesundeErnhrung.setSelected(false);
+				chckbxAuerhalbEuropas.setSelected(false);
+				
+				taAlkWas.setText("");
+				taRauchenAnz.setText("");
+				taDrogenArt.setText("");
+				taRegelBewegAnz.setText("");
+				taRegelBewegWas.setText("");		
+				
+				
+				
+			}
+		});
+		btnEingabeZurcksetzen.setBounds(579, 903, 276, 29);
+		contentPane.add(btnEingabeZurcksetzen);
 		
-		//Fachklassenanbindung oder so
-		//bzw. Variablenwerte
+		
+		
 		
 		
 	}
