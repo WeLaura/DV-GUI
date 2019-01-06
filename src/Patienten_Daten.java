@@ -845,15 +845,31 @@ public class Patienten_Daten extends JFrame {
 				chckbxAuerhalbEuropas.setSelected(false);
 				
 				taAlkWas.setText("");
+				taAlkWas.setEnabled(false);
 				taRauchenAnz.setText("");
+				taRauchenAnz.setEnabled(false);
 				taDrogenArt.setText("");
+				taDrogenArt.setEnabled(false);
 				taRegelBewegAnz.setText("");
-				taRegelBewegWas.setText("");		
+				taRegelBewegAnz.setEnabled(false);
+				taRegelBewegWas.setText("");
+				taRegelBewegWas.setEnabled(false);
 				
+				lstFamilienKrankheiten.setEnabled(false);
+				lstAllergien.setEnabled(false);
+				taWeitereKrankheiten.setText("");
 				
+				lstFamilienKrankheiten.clearSelection();
+				lstAllergien.clearSelection();
+				listsymp.clearSelection();
 				
-			}
-		});
+				combxalkh.setEnabled(false);
+				combxrauchh.setEnabled(false);
+				combxdrh.setEnabled(false);
+				combxreh.setEnabled(false);
+				combxbewh.setEnabled(false);
+				
+			}});
 		btnEingabeZurcksetzen.setBounds(579, 903, 276, 29);
 		contentPane.add(btnEingabeZurcksetzen);
 		
