@@ -779,9 +779,9 @@ public class Patienten_Daten extends JFrame {
 				if(returnVal == JFileChooser.APPROVE_OPTION){
 				File file = fc.getSelectedFile();
 				showText(file);
-				}
+				}}
 
-				private void showText(File file) //komischer Fehler, den ich noch behebe
+				private void showText(File file)
 				{
 				StringBuffer buf = new StringBuffer();
 				
