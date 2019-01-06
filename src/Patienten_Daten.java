@@ -404,7 +404,8 @@ public class Patienten_Daten extends JFrame {
 		lstFamilienKrankheiten.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) 
 			{
-
+				//if (e.getValueIsAdjusting() == false) {
+		        //    String 'FK' = lstFamilienKrankheiten.getSelectedIndex()
 			}
 		});
 		lstFamilienKrankheiten.setToolTipText("");
@@ -645,6 +646,7 @@ public class Patienten_Daten extends JFrame {
 				taPA.append("Alter: "+tfeAlter.getText()+"\n");
 				taPA.append("Größe: "+tfeGroesse.getText()+" m"+"\n");
 				taPA.append("Gewicht: "+tfeGewicht.getText()+" kg"+"\n");
+				taPA.append("Familienkrankheiten: "+Arrays.toString(lstFamilienKrankheiten.getSelectedIndices())+"\n");
 				
 				//Ausgabe des Geschlecht in taPA anhand von rbgsch
 				if(rbgschM.isSelected()==true)
@@ -868,6 +870,8 @@ public class Patienten_Daten extends JFrame {
 				combxdrh.setEnabled(false);
 				combxreh.setEnabled(false);
 				combxbewh.setEnabled(false);
+				
+				taPA.setText("");
 				
 			}});
 		btnEingabeZurcksetzen.setBounds(579, 903, 276, 29);
