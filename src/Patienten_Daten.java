@@ -805,7 +805,7 @@ public class Patienten_Daten extends JFrame {
 				}
 				taPA.setText(buf.toString());
 			}
-			}});
+			});
 		btnLaden.setBounds(740, 858, 115, 29);
 		contentPane.add(btnLaden);
 		
