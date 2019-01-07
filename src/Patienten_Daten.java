@@ -834,10 +834,6 @@ public class Patienten_Daten extends JFrame {
 				tfeGroesse.setText("");
 				tfeGewicht.setText("");
 				
-				rbgschM.setSelected(false);
-				rbgschW.setSelected(false);
-				rbgschX.setSelected(false);
-				
 				rbFKja.setSelected(false);
 				rbFKnein.setSelected(true);
 				
@@ -881,6 +877,7 @@ public class Patienten_Daten extends JFrame {
 				combxbewh.setEnabled(false);
 				
 				taPA.setText("");
+				Geschlecht.clearSelection();
 				
 			}});
 		btnEingabeZurcksetzen.setBounds(579, 903, 276, 29);
