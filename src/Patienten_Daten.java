@@ -104,9 +104,7 @@ public class Patienten_Daten extends JFrame {
 		Scanner scAllergien = new Scanner(allergien, "UTF-8"); //UTF-8 um Umlaute einzulesen
 		//Ende Datei einlesen!
 		
-		//Objekt-Erzeugung
-		//Verwaltungsklasse vk = new Verwaltungsklasse();
-		
+				
 				
 		JLabel lblName = new JLabel("Name:");
 		lblName.setBounds(23, 32, 58, 33);
@@ -687,6 +685,10 @@ public class Patienten_Daten extends JFrame {
 					} else if (rbgschX.isSelected()==true) {
 						objPatient.SetGeschlecht("Divers");
 					}
+					
+					//Angewohnheiten
+//					if(chckbxAlkohol.isSelected()==true)
+//						objPatient.SetAngewohnheiten();
 					
 					ArrayList<String> aktiveFamilienKrankheiten = new ArrayList<String>();
 					// Wenn Familienkrankheiten vorliegen, werden diese übergeben, ansonsten wird die Liste leer übergeben
