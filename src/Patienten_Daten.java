@@ -52,7 +52,7 @@ public class Patienten_Daten extends JFrame {
 	private JTextField tfeGroesse;
 	private JTextField tfeGewicht;
 	private JTextArea taPA; // unnötig?
-	private String FK,symp,Allergien,WK;
+	private String FK,symp,ALLergien,WK;
 	
 	Patient objPatient = new Patient();
 	
@@ -479,7 +479,7 @@ public class Patienten_Daten extends JFrame {
 			public void valueChanged(ListSelectionEvent e) 
 			{
 				if (e.getValueIsAdjusting() == false) {
-		             Allergien = Arrays.toString(lstAllergien.getSelectedValues());
+		             ALLergien = Arrays.toString(lstAllergien.getSelectedValues());
 			}
 		}});
 		lstAllergien.setToolTipText("");
@@ -500,6 +500,7 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(taWeitereKrankheiten);
 		
 		
+		WK = taWeitereKrankheiten.getText();
 		
 		
 		
@@ -633,7 +634,7 @@ public class Patienten_Daten extends JFrame {
 		
 		final JTextArea taPA = new JTextArea();
 		taPA.setEditable(false);
-		taPA.setBounds(627, 646, 196, 127);
+		taPA.setBounds(579, 646, 276, 196);
 		contentPane.add(taPA);
 		
 		JButton btnSpeichern = new JButton("Speichern");
@@ -644,28 +645,28 @@ public class Patienten_Daten extends JFrame {
 				
 				//Ausgabe in der TextArea für die Patientenakte
 				taPA.setText("");
-				taPA.append("Name: "+tfeName.getText()+"\n");
+				taPA.append("Name: "+tfeName.getText()+"\t");
 				taPA.append("Alter: "+tfeAlter.getText()+"\n");
-				taPA.append("Größe: "+tfeGroesse.getText()+" m"+"\n");
+				taPA.append("Größe: "+tfeGroesse.getText()+" m"+"\t");
 				taPA.append("Gewicht: "+tfeGewicht.getText()+" kg"+"\n");
 				
 				
 				//Ausgabe des Geschlecht in taPA anhand von rbgsch
 				if(rbgschM.isSelected()==true)
-					taPA.append("Geschlecht: "+"Männlich");
+					taPA.append("Geschlecht: "+"Männlich"+"\n");
 				else if (rbgschW.isSelected()==true)
-					taPA.append("Geschlecht: "+"Weiblich");
+					taPA.append("Geschlecht: "+"Weiblich"+"\n");
 				else if (rbgschX.isSelected()==true)
-					taPA.append("Geschlecht: "+"Divers");
+					taPA.append("Geschlecht: "+"Divers"+"\n");
 				else if (rbgschM.isSelected()==false && rbgschW.isSelected()==false && rbgschX.isSelected()==false)
 					JOptionPane.showMessageDialog(null,"Bitte eines der beiden Geschlechter wählen!");
 				
 				
 				//Ausgabe der ausgewählten Familienkrankheiten,Allergien,Symptome und wietere Krankheiten in TextArea
-				taPA.append("Familienkrankheiten: "+FK+"\n");
-				taPA.append("Allergien: "+Allergien+"\n");
-				taPA.append("Weitere Krankheiten: "+WK+"\n");
-				taPA.append("Symptome: "+symp+"\n");
+				taPA.append("Familienkrankheiten: "+ FK +"\n");
+				taPA.append("Allergien: "+ ALLergien +"\n");
+				taPA.append("Weitere Krankheiten: "+ WK +"\n");
+				taPA.append("Symptome: "+symp +"\n");
 				
 				
 				/* Übergabe der Patientendaten an die Klasse Patient
