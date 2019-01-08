@@ -17,7 +17,7 @@ public class Patient
     private ArrayList<String> FamKrankheiten;
     private ArrayList<String> Allergien;
     private ArrayList<String> weitKrankheiten;
-    private String[] Angewohnheiten;
+    private ArrayList<String> Angewohnheiten;	//nachtr‰glich ge‰ndert von Array zu ArrayList
     private ArrayList<String> Symptome;         //wurde als Attribut nachtr√§glich hinzugef√ºgt
     private ArrayList<String> ListeAlteSuchen;
 
@@ -34,7 +34,7 @@ public class Patient
         FamKrankheiten=new ArrayList<String>();
         Allergien=new ArrayList<String>();
         weitKrankheiten=new ArrayList<String>();
-        Angewohnheiten=null;
+        Angewohnheiten=new ArrayList<String>();
         Symptome=new ArrayList<String>();
         ListeAlteSuchen=new ArrayList<String>();
     }
@@ -44,7 +44,7 @@ public class Patient
      * @param  y    ein Beispielparameter f√ºr eine Methode
      * @return        die Summe aus x und y
      */
-    public void EingabeDaten(String n,int a,double g, double ge,String gesch,ArrayList<String> fam, ArrayList<String> all,ArrayList<String> we,String[] ang)
+    public void EingabeDaten(String n,int a,double g, double ge,String gesch,ArrayList<String> fam, ArrayList<String> all,ArrayList<String> we,ArrayList<String> ang)
     {
         SetName(n);
         SetAlter(a);
@@ -300,7 +300,7 @@ public class Patient
      * 
      * @return  Angewohnheiten  (Attribut Angewohnheiten)
      */
-    public String[] GetAngewohnheiten()
+    public ArrayList<String> GetAngewohnheiten()
     {
         return Angewohnheiten;
     }
@@ -310,7 +310,7 @@ public class Patient
      * 
      * @param  n    (String[] n zum setzen der Angewohnheiten)
      */
-    public void SetAngewohnheiten(String[] n)
+    public void SetAngewohnheiten(ArrayList<String> n)
     {
         Angewohnheiten=n;
     }

@@ -498,10 +498,7 @@ public class Patienten_Daten extends JFrame {
 		contentPane.add(taWeitereKrankheiten);
 		
 		
-		WK = taWeitereKrankheiten.getText();
-		
-		
-		
+				
 		JLabel lblSymptome = new JLabel("Symptome:");
 		lblSymptome.setBounds(23, 661, 97, 16);
 		contentPane.add(lblSymptome);
@@ -642,6 +639,7 @@ public class Patienten_Daten extends JFrame {
 				Boolean datenSindOK = true;
 				
 				//Ausgabe in der TextArea für die Patientenakte
+				taPA.setLineWrap(true); //Zeilenumbruch für TextArea erlauben
 				taPA.setText("");
 				taPA.append("Name: "+tfeName.getText()+"\t");
 				taPA.append("Alter: "+tfeAlter.getText()+"\n");
@@ -660,11 +658,6 @@ public class Patienten_Daten extends JFrame {
 					JOptionPane.showMessageDialog(null,"Bitte eines der beiden Geschlechter wählen!");
 				
 				
-				//Ausgabe der ausgewählten Familienkrankheiten,Allergien,Symptome und wietere Krankheiten in TextArea
-				taPA.append("Familienkrankheiten: "+ FK +"\n");
-				taPA.append("Allergien: "+ ALLergien +"\n");
-				taPA.append("Weitere Krankheiten: "+ WK +"\n");
-				taPA.append("Symptome: "+symp +"\n");
 				
 				
 				/* Übergabe der Patientendaten an die Klasse Patient
@@ -686,9 +679,7 @@ public class Patienten_Daten extends JFrame {
 						objPatient.SetGeschlecht("Divers");
 					}
 					
-					//Angewohnheiten
-//					if(chckbxAlkohol.isSelected()==true)
-//						objPatient.SetAngewohnheiten();
+					
 					
 					ArrayList<String> aktiveFamilienKrankheiten = new ArrayList<String>();
 					// Wenn Familienkrankheiten vorliegen, werden diese übergeben, ansonsten wird die Liste leer übergeben
@@ -740,6 +731,17 @@ public class Patienten_Daten extends JFrame {
 					}
 					objPatient.setSymptome(aktiveSymptome);
 				}
+				
+				
+				
+				
+				//Ausgabe der ausgewählten Familienkrankheiten,Allergien,Symptome und wietere Krankheiten in TextArea
+				taPA.append("Familienkrankheiten: "+ FK +"\n");
+				taPA.append("Allergien: "+ ALLergien +"\n");
+				taPA.append("Weitere Krankheiten: "+ objPatient.GetweitKrankheiten() +"\n");
+				taPA.append("Symptome: "+symp +"\n");
+				
+				
 				//Methodenaufruf um als Datei zu speichern
 				save();
 			}
