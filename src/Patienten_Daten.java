@@ -52,7 +52,7 @@ public class Patienten_Daten extends JFrame {
 	private JTextField tfeGroesse;
 	private JTextField tfeGewicht;
 	private JTextArea taPA; // unnötig?
-	private String FK,symp,ALLergien,WK;
+	private String FK,symp,ALLergien;
 	
 	Patient objPatient = new Patient();
 	
@@ -623,14 +623,17 @@ public class Patienten_Daten extends JFrame {
 		combxbewh.addItem("wöchentlich");
 		combxbewh.addItem("monatlich");
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(579, 646, 276, 196);
+		contentPane.add(scrollPane);
+		
 		
 				
 		
 		
-		final JTextArea taPA = new JTextArea();
-		taPA.setEditable(false);
-		taPA.setBounds(579, 646, 276, 196);
-		contentPane.add(taPA);
+		final JTextArea taPA_1 = new JTextArea();
+		scrollPane.setViewportView(taPA_1);
+		taPA_1.setEditable(false);
 		
 		JButton btnSpeichern = new JButton("Speichern");
 		btnSpeichern.addActionListener(new ActionListener() {
@@ -639,21 +642,21 @@ public class Patienten_Daten extends JFrame {
 				Boolean datenSindOK = true;
 				
 				//Ausgabe in der TextArea für die Patientenakte
-				taPA.setLineWrap(true); //Zeilenumbruch für TextArea erlauben
-				taPA.setText("");
-				taPA.append("Name: "+tfeName.getText()+"\t");
-				taPA.append("Alter: "+tfeAlter.getText()+"\n");
-				taPA.append("Größe: "+tfeGroesse.getText()+" m"+"\t");
-				taPA.append("Gewicht: "+tfeGewicht.getText()+" kg"+"\n");
+				taPA_1.setLineWrap(true); //Zeilenumbruch für TextArea erlauben
+				taPA_1.setText("");
+				taPA_1.append("Name: "+tfeName.getText()+"\t");
+				taPA_1.append("Alter: "+tfeAlter.getText()+"\n");
+				taPA_1.append("Größe: "+tfeGroesse.getText()+" m"+"\t");
+				taPA_1.append("Gewicht: "+tfeGewicht.getText()+" kg"+"\n");
 				
 				
 				//Ausgabe des Geschlecht in taPA anhand von rbgsch
 				if(rbgschM.isSelected()==true)
-					taPA.append("Geschlecht: "+"Männlich"+"\n");
+					taPA_1.append("Geschlecht: "+"Männlich"+"\n");
 				else if (rbgschW.isSelected()==true)
-					taPA.append("Geschlecht: "+"Weiblich"+"\n");
+					taPA_1.append("Geschlecht: "+"Weiblich"+"\n");
 				else if (rbgschX.isSelected()==true)
-					taPA.append("Geschlecht: "+"Divers"+"\n");
+					taPA_1.append("Geschlecht: "+"Divers"+"\n");
 				else if (rbgschM.isSelected()==false && rbgschW.isSelected()==false && rbgschX.isSelected()==false)
 					JOptionPane.showMessageDialog(null,"Bitte eines der beiden Geschlechter wählen!");
 				
@@ -730,16 +733,33 @@ public class Patienten_Daten extends JFrame {
 						}
 					}
 					objPatient.setSymptome(aktiveSymptome);
+					
+					ArrayList<String> aktiveAngewohnheiten = new ArrayList<String>();
+					if(chckbxAlkohol.isSelected()==true)
+						aktiveAngewohnheiten.add("Alkohol");
+					if(chckbxRauchen.isSelected()==true)
+						aktiveAngewohnheiten.add("Rauchen");
+					if(chckbxDrogen.isSelected()==true)
+						aktiveAngewohnheiten.add("Drogen");
+					if(chckbxReisen.isSelected()==true)
+						aktiveAngewohnheiten.add("Reisen");
+					if(chckbxRegelmBewegung.isSelected()==true)
+						aktiveAngewohnheiten.add("Regelmäßige Bewegung");
+					if(chckbxGesundeErnhrung.isSelected()==true)
+						aktiveAngewohnheiten.add("gesunde Ernährung");
+					
+					objPatient.SetAngewohnheiten(aktiveAngewohnheiten);
 				}
 				
 				
 				
 				
 				//Ausgabe der ausgewählten Familienkrankheiten,Allergien,Symptome und wietere Krankheiten in TextArea
-				taPA.append("Familienkrankheiten: "+ FK +"\n");
-				taPA.append("Allergien: "+ ALLergien +"\n");
-				taPA.append("Weitere Krankheiten: "+ objPatient.GetweitKrankheiten() +"\n");
-				taPA.append("Symptome: "+symp +"\n");
+				taPA_1.append("Familienkrankheiten: "+ FK +"\n");
+				taPA_1.append("Allergien: "+ ALLergien +"\n");
+				taPA_1.append("Weitere Krankheiten: "+ objPatient.GetweitKrankheiten() +"\n");
+				taPA_1.append("Symptome: "+symp +"\n");
+				taPA_1.append("Angewohnheiten: "+objPatient.GetAngewohnheiten()+"\n");
 				
 				
 				//Methodenaufruf um als Datei zu speichern
@@ -760,7 +780,7 @@ public class Patienten_Daten extends JFrame {
 				private void saveText(File file){
 				try{
 				FileWriter writer = new FileWriter(file);
-				String text = taPA.getText();
+				String text = taPA_1.getText();
 				writer.write(text);
 				writer.flush();
 				writer.close();
@@ -818,7 +838,7 @@ public class Patienten_Daten extends JFrame {
 				e.printStackTrace();
 				}
 				}
-				taPA.setText(buf.toString());
+				taPA_1.setText(buf.toString());
 			}
 			});
 		btnLaden.setBounds(740, 858, 115, 29);
@@ -880,7 +900,7 @@ public class Patienten_Daten extends JFrame {
 				combxreh.setEnabled(false);
 				combxbewh.setEnabled(false);
 				
-				taPA.setText("");
+				taPA_1.setText("");
 				Geschlecht.clearSelection();
 				
 			}});
